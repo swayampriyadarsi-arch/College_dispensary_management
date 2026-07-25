@@ -16,7 +16,7 @@ const FacilityModal = (props) => {
         }
     }, [])
     const updateFacility = async () => {
-         await axios.put(`http://localhost:4000/api/facility/update/${props.clickedItem._id}`,inputField,{withCredentials:true}).then(response => {
+         await axios.put(`/api/facility/update/${props.clickedItem._id}`,inputField,{withCredentials:true}).then(response => {
             window.location.reload()
 
 
@@ -39,7 +39,7 @@ const FacilityModal = (props) => {
             updateFacility();
             return;
         }
-         await axios.post('http://localhost:4000/api/facility/add',inputField,{withCredentials:true}).then(response => {
+         await axios.post('/api/facility/add',inputField,{withCredentials:true}).then(response => {
             window.location.reload()
 
 

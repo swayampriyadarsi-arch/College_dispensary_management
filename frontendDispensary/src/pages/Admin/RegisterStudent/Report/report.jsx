@@ -16,7 +16,7 @@ const Report = (props) => {
     }
     const fetchData = async () => {
 
-        await axios.get(`http://localhost:4000/api/medicine/search-by-name?name=${searchMedicineName}`).then(response => {
+        await axios.get(`/api/medicine/search-by-name?name=${searchMedicineName}`).then(response => {
             console.log(response)
             setData(response.data.medicines)
             setDropDown(true)
@@ -76,7 +76,7 @@ const Report = (props) => {
        
         if (selectedMedicine.length === 0) return toast.error("Please select any medicine.");
         if (checkInputInValid()) return toast.error("Please enter all the fields.")
-          await axios.post(`http://localhost:4000/api/history/add`,
+          await axios.post(`/api/history/add`,
         {roll:props.studentDetail.roll,student:props.studentDetail._id,medicines:selectedMedicine}
         ,{withCredentials:true}).then((response)=>{
             toast.success(response.data.message)

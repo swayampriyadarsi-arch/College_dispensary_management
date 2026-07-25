@@ -15,7 +15,7 @@ const ManageStaff = (props) => {
     const fetchData = async () => {
         props.showLoader()
 
-        await axios.get('http://localhost:4000/api/auth/get-staff').then((response) => {
+        await axios.get('/api/auth/get-staff').then((response) => {
             setStaffs(response.data.staffs)
         }).catch(err => {
             console.log(err)
@@ -30,7 +30,7 @@ const ManageStaff = (props) => {
     const handleUpdate = async (e) => {
         
 
-        await axios.put(`http://localhost:4000/api/auth/update-staff/${clickedStaff?._id}`, inputField, { withCredentials: true }).then(response => {
+        await axios.put(`/api/auth/update-staff/${clickedStaff?._id}`, inputField, { withCredentials: true }).then(response => {
             window.location.reload();
         }).catch(err => {
             toast.error(err?.response?.data?.error)
@@ -48,7 +48,7 @@ const ManageStaff = (props) => {
 
         if (inputField.name.trim().length === 0 || inputField.email.trim().length === 0 || inputField.password.trim().length === 0 || inputField.designation.trim().length === 0 || inputField.mobileNo.trim().length === 0) return toast.error("Please fill all the details.");
         props.showLoader()
-         await axios.post(`http://localhost:4000/api/auth/add-staff`, inputField, { withCredentials: true }).then(response => {
+         await axios.post(`/api/auth/add-staff`, inputField, { withCredentials: true }).then(response => {
            toast.success(response.data.message);
            setStaffs([inputField, ...staffs])
            setInputField({name:"" ,email:"",password:"",designation:"",mobileNo:""})
@@ -72,7 +72,7 @@ const ManageStaff = (props) => {
     }
 
     const handleDelete = async (id) => {
-       await axios.delete(`http://localhost:4000/api/auth/delete-staff/${id}`,{ withCredentials: true }).then(response => {
+       await axios.delete(`/api/auth/delete-staff/${id}`,{ withCredentials: true }).then(response => {
             filterOutData(id)
         }).catch(err => {
             toast.error(err?.response?.data?.error)

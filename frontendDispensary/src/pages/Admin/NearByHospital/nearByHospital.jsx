@@ -23,7 +23,7 @@ const NearByHospital = (props) => {
 
     const fetchData = async () => {
         props.showLoader();
-        await axios.get('http://localhost:4000/api/hospital/get').then(response => {
+        await axios.get('/api/hospital/get').then(response => {
             setData(response.data.hospitals);
 
 
@@ -51,7 +51,7 @@ const NearByHospital = (props) => {
 
     const handleDelete = async (id) => {
         props.showLoader();
-        await axios.delete(`http://localhost:4000/api/hospital/delete/${id}`,{withCredentials:true}).then((response)=>{
+        await axios.delete(`/api/hospital/delete/${id}`,{withCredentials:true}).then((response)=>{
             filterOutData(id);
          }).catch(err => {
             toast.error(err?.response?.data?.error)

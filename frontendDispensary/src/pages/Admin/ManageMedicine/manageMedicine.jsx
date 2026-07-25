@@ -28,7 +28,7 @@ const ManageMedicine = (props) => {
     }
     const fetchData = async () => {
         props.showLoader();
-         await axios.get(`http://localhost:4000/api/medicine/search-by-name?name=${medicineSearch}`).then(response => {
+         await axios.get(`/api/medicine/search-by-name?name=${medicineSearch}`).then(response => {
            console.log(response)
            setData(response.data.medicines)
            
@@ -52,7 +52,7 @@ const ManageMedicine = (props) => {
 
     const handleDelete = async(id)=>{
         props.showLoader();
-         await axios.delete(`http://localhost:4000/api/medicine/delete/${id}`,{ withCredentials: true }).then((response) => {
+         await axios.delete(`/api/medicine/delete/${id}`,{ withCredentials: true }).then((response) => {
              filterOutMedicine(id)
         }).catch(err => {
             toast.error(err?.response?.data?.error)

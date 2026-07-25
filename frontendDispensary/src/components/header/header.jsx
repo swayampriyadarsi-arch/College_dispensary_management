@@ -22,7 +22,7 @@ const Header = (props) => {
     }
 
     const fetchEvents = async () => {
-        await axios.get('http://localhost:4000/api/notification/get').then(response => {
+        await axios.get('/api/notification/get').then(response => {
 
 
             setEvents(response.data.notifications);
@@ -50,7 +50,7 @@ const Header = (props) => {
     }
     const handleLogout = async () => {
         props.showLoader();
-        await axios.post('http://localhost:4000/api/auth/logout', {}, { withCredentials: true }).then(response => {
+        await axios.post('/api/auth/logout', {}, { withCredentials: true }).then(response => {
             console.log(response)
             props.handleLogin(false)
             localStorage.clear();
