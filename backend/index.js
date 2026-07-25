@@ -11,7 +11,9 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173',
+    'https://college-dispensary-management.onrender.com'
+  ],
   })
 );
 
