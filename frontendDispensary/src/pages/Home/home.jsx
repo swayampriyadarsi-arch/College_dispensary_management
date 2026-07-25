@@ -9,7 +9,7 @@ import AboutUs from '../../components/AboutUs/aboutUs';
 import Staff from '../../components/Staffs/staff';
 import Facilities from '../../components/Facilities/facility';
 import NearByHospital from '../../components/NearByHospitals/nearByHospitals';
-import Gallery from '../../components/Gallery/Gallery';
+import Gallery from '../../components/Gallery/gallery';
 import { Link } from 'react-router-dom';
 const Home = (props) => {
 
