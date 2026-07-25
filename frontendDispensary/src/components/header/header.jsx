@@ -68,7 +68,7 @@ const Header = (props) => {
         <div className='header'>
             <div className='header-college-details'>
                 <div className='header-college-details-left'>
-                    <img className='header-college-details-left-logo' src='https://images.shiksha.com/mediadata/images/1667133999php7auAo5.jpeg' alt='collegeLogo' />
+                    <img className='header-college-details-left-logo' src='https://up.yimg.com/ib/th/id/OIP.i0aORRND9PbRx3LNTLxvgQHaGk?pid=Api&dpr=2&rs=1&c=1&qlt=95&w=213&h=188' alt='collegeLogo' />
                     <div>
                         <div className='header-college-details-name'>STATE GOVT UNIVERSITY,</div>
                         <div className='header-college-details-place'>COLLEGE </div>
@@ -129,7 +129,7 @@ const Header = (props) => {
 
             {
                 location.pathname === "/" && <div className='header-banner'>
-                    <img src={"https://gyaanarth.com/wp-content/uploads/2022/06/e-Learning-Centre-vssut.jpg"} className='header-banner-image' />
+                    <img src={"https://ik.imagekit.io/syustaging/SYU_PREPROD/Cover-image_RRh70lwAi.webp?tr=w-3840"} className='header-banner-image' />
                 </div>
             }
             <ToastContainer />
