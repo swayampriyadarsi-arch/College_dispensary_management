@@ -1,5 +1,5 @@
 // const { data } = require('react-router-dom');
-const UserModels = require('../Models/User');
+const UserModels = require('../Models/user');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto=require("crypto");
