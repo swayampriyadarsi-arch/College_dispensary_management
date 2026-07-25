@@ -28,7 +28,7 @@ const AdminGallery = (props) => {
 
     const fetchData = async () => {
         props.showLoader();
-        await axios.get('/api/gallary/get').then(response => {
+        await axios.get('/api/gallery/get').then(response => {
             setData(response.data.images);
 
 

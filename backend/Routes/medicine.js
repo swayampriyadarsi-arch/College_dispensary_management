@@ -17,6 +17,4 @@ router.delete('/delete/:id',Authentication.adminFacultyAuth,MedicineController.d
  
  
 
-router.delete('/delete/:id',Authentication.adminFacultyAuth,MedicineController.deleteMedicineById)
-
 module.exports = router;

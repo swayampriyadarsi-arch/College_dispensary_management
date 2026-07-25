@@ -6,11 +6,15 @@ const crypto=require("crypto");
 const nodemailer=require('nodemailer');
 
 
-const cookieOptions = {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
-    path:'/'
+const cookieOptions = (req) => {
+    const isSecure = req.secure || req.get('x-forwarded-proto') === 'https';
+
+    return {
+        httpOnly: true,
+        secure: isSecure,
+        sameSite: isSecure ? 'none' : 'lax',
+        path: '/',
+    };
 };
 
 const transporter = nodemailer.createTransport({
@@ -45,7 +49,7 @@ exports.login = async(req, res) => {
         
       if(isExist && await bcryptjs.compare(password, isExist.password)){
         const token = jwt.sign({ userId: isExist._id }, 'Its_My_Secret_Key');
-        res.cookie('token', token, cookieOptions);
+        res.cookie('token', token, cookieOptions(req));
 
 
 
@@ -334,5 +338,5 @@ exports.deleteStaff = async (req, res) => {
 }
 
 exports.logout = async (req, res) => {
-    res.clearCookie('token', cookieOptions).json({ message: 'Logged out successfully' });
+    res.clearCookie('token', cookieOptions(req)).json({ message: 'Logged out successfully' });
 }

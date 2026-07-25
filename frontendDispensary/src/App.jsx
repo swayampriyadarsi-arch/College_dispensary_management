@@ -53,7 +53,7 @@ function App() {
         <Route path='/admin/facility' element={isLogin && role!=="student"?<Facility showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/" />} />
        
         <Route path='/admin/nearByHospital' element={isLogin && role!=="student"?<NearByHospital showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/" />} />
-        <Route path='/admin/gallary' element={isLogin && role !== "student" ? <AdminGallery showLoader={showLoader} hideLoader={hideLoader} /> : <Navigate to="/" />} />
+        <Route path='/admin/gallery' element={isLogin && role !== "student" ? <AdminGallery showLoader={showLoader} hideLoader={hideLoader} /> : <Navigate to="/" />} />
 
         <Route path='/student/:id' element={isLogin && role === "student" ? <StudentDashboard showLoader={showLoader} hideLoader={hideLoader} /> : <Navigate to="/" />} />
       </Routes>
